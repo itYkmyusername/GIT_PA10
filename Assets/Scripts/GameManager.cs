@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +28,10 @@ public class GameManager : MonoBehaviour
     {
         Score += value;
         Txt_Score.text = "SCORE : " + Score;
+        if (Score == 15)
+        {
+            SceneManager.LoadScene("GameWin");
+        }
     }
 
     private void StartGame()
@@ -42,4 +48,6 @@ public class GameManager : MonoBehaviour
         Txt_Message.text = "GAMEOVER! \nPRESS ENTER TO RESTART GAME.";
         Txt_Message.color = Color.red;
     }
+
+    
 }

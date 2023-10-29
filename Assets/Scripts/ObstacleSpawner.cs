@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject Obstacle = null;
-    [SerializeField] private float SpawnInterval = 1;
+    [SerializeField] private float SpawnInterval = 0;
     private float NextSpawn = 0;
 
     void Update()
@@ -14,7 +14,7 @@ public class ObstacleSpawner : MonoBehaviour
         if(Time.time >= NextSpawn)
         {
             NextSpawn = Time.time + SpawnInterval;
-            Vector3 SpawnPos = new Vector3(8, Random.Range(-3, 3), 0);
+            Vector3 SpawnPos = new Vector3(8, Random.Range(-3.7f, 3.7f), 0);
 
             Instantiate(Obstacle, SpawnPos, Quaternion.identity);
         }
